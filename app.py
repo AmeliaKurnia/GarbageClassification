@@ -7,7 +7,7 @@ from edukasi import waste_info
 # Load model hanya sekali
 @st.cache_resource
 def load_model():
-    return tf.keras.models.load_model("waste_classifier_model.h5")
+    return tf.keras.models.load_model("garbage_classifier_model.h5")
 
 model = load_model()
 class_names = list(waste_info.keys())  # 12 kelas
