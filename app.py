@@ -26,7 +26,7 @@ def predict(image):
     max_prob = float(np.max(prediction))
     predicted_index = np.argmax(prediction)
 
-    if max_prob < 0.6:
+    if max_prob < 0.05:
         return "Tidak Terdeteksi", max_prob
     else:
         return class_names[predicted_index], max_prob
