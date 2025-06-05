@@ -4,6 +4,10 @@ import tensorflow as tf
 import numpy as np
 from edukasi import waste_info
 
+# Konfigurasi Streamlit
+st.set_page_config(page_title="WasteTrack", layout="centered")
+menu = st.sidebar.selectbox("Navigasi", ["Home", "Deteksi Sampah", "Jenis Sampah", "Tentang Kami"])
+
 # Load model hanya sekali
 @st.cache_resource
 def load_model():
@@ -26,10 +30,6 @@ def predict(image):
         return "Tidak Terdeteksi", max_prob
     else:
         return class_names[predicted_index], max_prob
-
-# Konfigurasi Streamlit
-st.set_page_config(page_title="WasteTrack", layout="centered")
-menu = st.sidebar.selectbox("Navigasi", ["Home", "Deteksi Sampah", "Jenis Sampah", "Tentang Kami"])
 
 # Halaman Home
 if menu == "Home":
