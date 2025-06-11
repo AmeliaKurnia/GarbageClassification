@@ -6,7 +6,7 @@ from edukasi import waste_info
 
 # Konfigurasi Streamlit
 st.set_page_config(page_title="WasteTrack", layout="centered")
-menu = st.sidebar.selectbox("Navigasi", ["Home", "Deteksi Sampah", "Jenis Sampah", "Tentang Kami"])
+menu = st.sidebar.radio("📂 Navigasi", ["Home", "Deteksi Sampah", "Jenis Sampah", "Tentang Kami"])
 
 # Load model hanya sekali
 @st.cache_resource
