@@ -6,7 +6,54 @@ from edukasi import waste_info
 
 # Konfigurasi Streamlit
 st.set_page_config(page_title="WasteTrack", layout="centered")
-menu = st.sidebar.radio("📂 Navigasi", ["Home", "Deteksi Sampah", "Jenis Sampah", "Tentang Kami"])
+# SIDEBAR KUSTOM
+st.sidebar.markdown("""
+<style>
+.sidebar-title {
+    font-size: 22px;
+    font-weight: bold;
+    color: #F1C40F;
+    margin-bottom: 12px;
+}
+
+.nav-link {
+    padding: 8px 10px;
+    font-size: 16px;
+    color: white;
+    border-bottom: 1px solid #444;
+    text-decoration: none;
+    display: block;
+    border-radius: 5px;
+}
+
+.nav-link:hover {
+    background-color: #333;
+    color: #FF5252;
+}
+
+.nav-active {
+    background-color: #FF5252 !important;
+    font-weight: bold;
+    color: white !important;
+}
+</style>
+""", unsafe_allow_html=True)
+
+if "page" not in st.session_state:
+    st.session_state.page = "Home"
+
+def nav_item(name):
+    if st.session_state.page == name:
+        st.sidebar.markdown(f'<div class="nav-link nav-active">{name}</div>', unsafe_allow_html=True)
+    else:
+        if st.sidebar.button(name):
+            st.sessio
+
+if menu == "Home":
+    ...
+elif menu == "Deteksi Sampah":
+    ...
+
 
 # Load model hanya sekali
 @st.cache_resource
